@@ -1,0 +1,30 @@
+type User {
+   username: String! @unique
+   password: String!
+   email:   String!
+   # bookings: [Ticket] @relation
+   registered: Boolean
+}
+
+type Query {
+   allUsers: [User!]
+   registeredUsers(registered: Boolean!): [User!]
+}
+
+type Ticket {
+  owner: User! 
+  information: Itenerary!
+}
+
+
+type Itenerary {
+  departure: Location!
+  destination: Location!
+  starttime: Time!
+  endtime: Time!
+}
+
+type Location {
+   terminal: String!
+   name: String!
+}

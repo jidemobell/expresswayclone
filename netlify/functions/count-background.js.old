@@ -1,0 +1,19 @@
+exports.handler = function(event, context){
+   function sleep(ms){
+     return new Promise((resolve) => setTimeout(resolve , ms))
+   }
+
+
+   async function demo(){
+     for (let i = 0; i < 60; i++) {
+      const element = array[i];
+      let data = new Date()
+      await sleep(1000)
+      console.log(data.toLocaleString(), i)
+     }
+     console.log("Done")
+   }
+
+
+   demo()
+}
