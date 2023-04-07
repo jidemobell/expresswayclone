@@ -1,6 +1,6 @@
 const faunadb = require("faunadb")
 
-const secret = process.env.FAUNADB_SECRET
+const secret = process.env.REACT_APP_FAUNADB_SECRET
 
 if (typeof secret === 'undefined' || secret === '') {
   console.error('The FAUNADB_SECRET environment variable is not set, exiting.')
