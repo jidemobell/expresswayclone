@@ -1,4 +1,4 @@
-const { CreateUser, Login } = require("./utils/auth")
+const { CreateUser, login } = require("./utils/auth")
 
 //write netlify handler for route
 exports.handler = async function (event,context){
@@ -8,7 +8,7 @@ exports.handler = async function (event,context){
      const { ref = null } = faunaSignUpResponse
 
      if(ref) {
-      const faunaAuthResponse = await Login(email, password)
+      const faunaAuthResponse = await login(email, password)
       const { secret, instance } = faunaAuthResponse
 
       return {
@@ -21,7 +21,7 @@ exports.handler = async function (event,context){
     
     return {
       statusCode: 400,
-      body: "Account already exists.",
+      body: `error is ${error}`,
     };
-  }
+  }m 
 }

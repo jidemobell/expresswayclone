@@ -1,7 +1,8 @@
 const { query } = require("./fauna")
+const { Login, Create, Collection, Match, Index, Get} = require("faunadb").query
 
-exports.Login = async function ( email, password){
-   query(
+exports.login = async function ( email, password){
+   return query(
     Login(
       Match(Index("users_by_email"), email),
       { password },
@@ -12,9 +13,9 @@ exports.Login = async function ( email, password){
 
 
 exports.CreateUser = async function (email, password){
-  query(
+  return query(
     Create(
-      Collection("users"),
+      Collection("User"),
       {
         credentials: { password },
         data: {
